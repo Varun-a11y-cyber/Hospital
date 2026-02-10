@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shalby Hospital | Excellence in Healthcare</title>
+
+<style>
+:root {
+  --primary:#0b6ef3;
+  --secondary:#00bcd4;
+  --dark:#0a2540;
+  --light:#f5f8ff;
+  --gradient:linear-gradient(135deg,#0b6ef3,#00c6ff);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',sans-serif;
+}
+
+html{scroll-behavior:smooth;}
+body{background:var(--light);color:#333}
+
+/* NAVBAR */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:#fff;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 8%;
+  box-shadow:0 5px 25px rgba(0,0,0,.08);
+  z-index:999;
+}
+
+nav h1{
+  color:var(--primary);
+  font-size:26px;
+}
+
+nav ul{
+  display:flex;
+  list-style:none;
+  gap:30px;
+}
+
+nav ul li a{
+  text-decoration:none;
+  color:#333;
+  font-weight:600;
+  position:relative;
+}
+
+nav ul li a::after{
+  content:'';
+  position:absolute;
+  width:0;
+  height:3px;
+  left:0;
+  bottom:-6px;
+  background:var(--primary);
+  transition:.3s;
+}
+
+nav ul li a:hover::after{width:100%;}
+
+/* HERO */
+.hero{
+  height:100vh;
+  background:var(--gradient);
+  display:flex;
+  align-items:center;
+  padding:0 8%;
+  color:#fff;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero::before{
+  content:'';
+  position:absolute;
+  width:500px;
+  height:500px;
+  background:rgba(255,255,255,.15);
+  border-radius:50%;
+  top:-150px;
+  right:-150px;
+  animation:float 8s infinite ease-in-out;
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(40px)}
+}
+
+.hero-content{
+  max-width:600px;
+}
+
+.hero h2{
+  font-size:48px;
+  margin-bottom:20px;
+}
+
+.hero p{
+  font-size:18px;
+  line-height:1.7;
+}
+
+.hero button{
+  margin-top:30px;
+  padding:14px 35px;
+  font-size:16px;
+  border:none;
+  background:#fff;
+  color:var(--primary);
+  border-radius:30px;
+  cursor:pointer;
+  transition:.4s;
+}
+
+.hero button:hover{
+  transform:translateY(-4px);
+  box-shadow:0 15px 40px rgba(0,0,0,.3);
+}
+
+/* SECTIONS */
+section{
+  padding:90px 8%;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:60px;
+}
+
+.section-title h3{
+  font-size:36px;
+  color:var(--dark);
+}
+
+/* SERVICES */
+.services{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+}
+
+.service-card{
+  background:#fff;
+  padding:40px 25px;
+  border-radius:20px;
+  text-align:center;
+  transition:.4s;
+  position:relative;
+  overflow:hidden;
+}
+
+.service-card::before{
+  content:'';
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:-100%;
+  left:0;
+  background:var(--gradient);
+  transition:.4s;
+  z-index:0;
+}
+
+.service-card:hover::before{top:0}
+
+.service-card *{
+  position:relative;
+  z-index:1;
+}
+
+.service-card h4{
+  margin:20px 0;
+  font-size:22px;
+}
+
+.service-card:hover{
+  transform:translateY(-12px);
+  color:#fff;
+}
+
+/* ABOUT */
+.about{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:center;
+}
+
+.about-box{
+  background:#fff;
+  padding:40px;
+  border-radius:20px;
+  box-shadow:0 20px 40px rgba(0,0,0,.08);
+}
+
+/* COUNTERS */
+.counters{
+  background:var(--gradient);
+  color:#fff;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  text-align:center;
+  gap:30px;
+}
+
+.counter h4{
+  font-size:48px;
+}
+
+.counter p{
+  font-size:18px;
+}
+
+/* DOCTORS */
+.doctors{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+}
+
+.doctor{
+  background:#fff;
+  border-radius:20px;
+  padding:30px;
+  text-align:center;
+  transition:.4s;
+}
+
+.doctor:hover{
+  transform:translateY(-10px);
+  box-shadow:0 20px 40px rgba(0,0,0,.15);
+}
+
+/* CTA */
+.cta{
+  background:var(--dark);
+  color:#fff;
+  text-align:center;
+  padding:80px 20px;
+}
+
+.cta button{
+  margin-top:25px;
+  padding:15px 40px;
+  border:none;
+  background:var(--gradient);
+  color:#fff;
+  font-size:16px;
+  border-radius:30px;
+  cursor:pointer;
+}
+
+/* FOOTER */
+footer{
+  background:#000;
+  color:#aaa;
+  text-align:center;
+  padding:25px;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .about{grid-template-columns:1fr}
+  .hero h2{font-size:38px}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <h1>Shalby Hospital</h1>
+  <ul>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#doctors">Doctors</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-content">
+    <h2>Excellence in Healthcare</h2>
+    <p>Shalby Hospital delivers world-class medical services with compassion, innovation, and advanced technology.</p>
+    <button>Book Appointment</button>
+  </div>
+</div>
+
+<section id="services">
+  <div class="section-title"><h3>Our Services</h3></div>
+  <div class="services">
+    <div class="service-card"><h4>Orthopedics</h4><p>Advanced joint replacement & trauma care.</p></div>
+    <div class="service-card"><h4>Cardiology</h4><p>Comprehensive heart care solutions.</p></div>
+    <div class="service-card"><h4>Neurology</h4><p>Expert brain & spine treatments.</p></div>
+    <div class="service-card"><h4>Emergency</h4><p>24/7 critical care & emergency services.</p></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="section-title"><h3>About Shalby</h3></div>
+  <div class="about">
+    <div class="about-box">
+      <h4>Trusted Healthcare Partner</h4>
+      <p>Shalby Hospitals is a multi-specialty healthcare group committed to clinical excellence, ethical practices, and patient-centric care.</p>
+    </div>
+    <div class="about-box">
+      <h4>Advanced Technology</h4>
+      <p>Equipped with cutting-edge medical infrastructure and internationally trained doctors.</p>
+    </div>
+  </div>
+</section>
+
+<section class="counters">
+  <div class="counter"><h4 class="count" data-target="2000000">0</h4><p>Patients Treated</p></div>
+  <div class="counter"><h4 class="count" data-target="150">0</h4><p>Expert Doctors</p></div>
+  <div class="counter"><h4 class="count" data-target="15">0</h4><p>Hospitals</p></div>
+</section>
+
+<section id="doctors">
+  <div class="section-title"><h3>Our Specialists</h3></div>
+  <div class="doctors">
+    <div class="doctor"><h4>Dr. A. Mehta</h4><p>Orthopedic Surgeon</p></div>
+    <div class="doctor"><h4>Dr. R. Shah</h4><p>Cardiologist</p></div>
+    <div class="doctor"><h4>Dr. P. Patel</h4><p>Neurologist</p></div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <h3>Need Medical Assistance?</h3>
+  <p>We are here to help you 24/7</p>
+  <button>Contact Us</button>
+</section>
+
+<footer>
+  <p>© 2026 Shalby Hospital. All Rights Reserved.</p>
+</footer>
+
+<script>
+const counters=document.querySelectorAll('.count');
+counters.forEach(counter=>{
+  let start=0;
+  const target=+counter.dataset.target;
+  const step=target/200;
+  const update=()=>{
+    start+=step;
+    if(start<target){
+      counter.innerText=Math.floor(start);
+      requestAnimationFrame(update);
+    }else{
+      counter.innerText=target;
+    }
+  };
+  update();
+});
+</script>
+
+</body>
+</html>
